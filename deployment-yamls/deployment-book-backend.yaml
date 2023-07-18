@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-backend-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-backend-svc
+      type: deploy
+  template:
+    metadata:
+      labels:
+        app: book-backend-svc
+        type: deploy
+    spec:
+      containers:
+        - name: book-backend-svc
+          imagePullPolicy: IfNotPresent
+          image: book-backend-svc:latest
+          ports:
+            - containerPort: 8000
+          env:
+          - name: MONGO_HOST
+            value: mongo-svc
+          - name: MONGO_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: username
+          - name: MONGO_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: password
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "500Mi"
+            requests:
+              cpu: "100m"
+              memory: "100Mi"    

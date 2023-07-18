@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: load-test
+  template:
+    metadata:
+      labels:
+        app: load-test
+    spec:
+      containers:
+        - name: load-test
+          image: alpine/curl
+          imagePullPolicy: Always
+          command: ["sh", "-c", "while true; do curl http://book-backend-svc.default.svc.cluster.local:8000/api/books; done"]

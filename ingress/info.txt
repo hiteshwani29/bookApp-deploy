@@ -1,0 +1,2 @@
+Ref link for ssl configuration
+https://medium.com/avmconsulting-blog/how-to-secure-applications-on-kubernetes-ssl-tls-certificates-8f7f5751d788
