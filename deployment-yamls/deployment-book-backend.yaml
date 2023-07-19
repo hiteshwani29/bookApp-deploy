@@ -17,26 +17,26 @@ spec:
       containers:
         - name: book-backend-svc
           imagePullPolicy: IfNotPresent
-          image: book-backend-svc:latest
+          image: hiteshwani29/book-backend-svc:${GITHUB_SHA}
           ports:
             - containerPort: 8000
           env:
-          - name: MONGO_HOST
-            value: mongo-svc
-          - name: MONGO_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: mongo-secret
-                key: username
-          - name: MONGO_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mongo-secret
-                key: password
+            - name: MONGO_HOST
+              value: mongo-svc
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: username
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: password
           resources:
             limits:
               cpu: "200m"
               memory: "500Mi"
             requests:
               cpu: "100m"
-              memory: "100Mi"    
+              memory: "100Mi"
