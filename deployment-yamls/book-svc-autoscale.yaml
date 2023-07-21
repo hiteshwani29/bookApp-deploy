@@ -3,6 +3,8 @@ kind: HorizontalPodAutoscaler
 metadata:
   creationTimestamp: null
   name: book-backend-svc
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   maxReplicas: 5
   minReplicas: 1
