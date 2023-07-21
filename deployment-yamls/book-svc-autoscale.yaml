@@ -13,6 +13,3 @@ spec:
     kind: Deployment
     name: book-backend-svc
   targetCPUUtilizationPercentage: 30
-status:
-  currentReplicas: 0
-  desiredReplicas: 0
