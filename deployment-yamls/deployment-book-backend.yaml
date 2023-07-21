@@ -19,7 +19,7 @@ spec:
       containers:
         - name: book-backend-svc
           imagePullPolicy: IfNotPresent
-          image: hiteshwani29/book-backend-svc:${GITHUB_SHA}
+          image: hiteshwani29/book-backend-svc:9992ff035461bf1335ac88048ea1aa1465f82e49
           ports:
             - containerPort: 8000
           env:
