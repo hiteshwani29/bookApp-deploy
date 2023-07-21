@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend:latest
+          image: hiteshwani29/book-frontend-svc:0de0916af0463667e08ca26eae0e1b1c2af907e8
           ports:
             - containerPort: 80
           imagePullPolicy: IfNotPresent
